@@ -14,7 +14,14 @@
       <p>{{ $lang.SHORT_DESC }}</p>
       <Step :data="e" v-for="e in $lang.steps" :key="e.id" class="mb-5" />
       <hr />
-      <IvyFilePicker :text="$lang.DRAG_N_DROP_SV" :errorText="$lang.ERROR_WRONG_SV" />
+      <div class="alert alert-info">{{ $lang.SRC_SAVE_DATA }}</div>
+      <IvyFilePicker @input="parseSrcSaveData" :text="$lang.DRAG_N_DROP_SV" :errorText="$lang.ERROR_WRONG_SV" class="mb-3" />
+      <SaveDataInfo :save-data="srcSaveData" v-if="srcSaveData" />
+
+      <div class="alert alert-info">{{ $lang.DEST_SAVE_DATA }}</div>
+      <IvyFilePicker @input="parseDestSaveData" :text="$lang.DRAG_N_DROP_SV" :errorText="$lang.ERROR_WRONG_SV" class="mb-3" />
+      <SaveDataInfo :save-data="destSaveData" v-if="destSaveData" />
+
       <div class="mb-5 d-block w-100"></div>
       <h4>Disclaimer</h4>
       <hr />
@@ -27,17 +34,22 @@
 import { es, en } from "./dictionary";
 import Step from './components/Step';
 import IvyFilePicker from './components/IvyFilePicker'
+import SaveDataInfo from './components/SaveDataInfo'
+import SaveEditor from './save-data'
 
 export default {
   name: "App",
   components: {
     Step,
-    IvyFilePicker
+    IvyFilePicker,
+    SaveDataInfo
   },
   data() {
     return {
       bottom: false,
-      english: true
+      english: true,
+      srcSaveData: null,
+      destSaveData: null,
     };
   },
   computed: {
@@ -46,6 +58,16 @@ export default {
     },
     $lang() {
       return this.english ? en : es;
+    }
+  },
+  methods: {
+    parseSrcSaveData(v){
+      this.srcSaveData = SaveEditor.parse(v);
+      console.log(this.srcSaveData);
+    },
+    parseDestSaveData(v){
+      this.destSaveData = SaveEditor.parse(v);
+      console.log(this.destSaveData);
     }
   },
   created() {

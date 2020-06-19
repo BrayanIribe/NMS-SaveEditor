@@ -4,6 +4,8 @@ const es = {
   SHORT_DESC: `Sigue la siguiente guía al pie de la letra para lograr el efecto deseado.`,
   DRAG_N_DROP_SV: `Ahora que tienes tu save data, arrástralo y suéltalo haz clic para seleccionarlo.`,
   ERROR_WRONG_SV: `El save data que pusiste no es correcto. Tiene que ser un archivo con extensión HG.`,
+  SRC_SAVE_DATA: `Pon abajo el save data que tiene el modo a a dificultad que quieres cambiar`,
+  DEST_SAVE_DATA: `Pon abajo el save data al que le quieres cambiar la dificultad.`,
   steps: [
     {
       id: 0,
@@ -42,6 +44,8 @@ const en = {
   SHORT_DESC: `Follow the next guide to change the difficulty of your game.`,
   DRAG_N_DROP_SV: `Now that you have your save data, Drag'n'Drop here or clic on it to find it.`,
   ERROR_WRONG_SV: `You gave me the wrong save data. It must be a HG file.`,
+  SRC_SAVE_DATA: `Put below your save data that has the desired game mode.`,
+  DEST_SAVE_DATA: `Put below your save data that you want to change.`,
   steps: [
     {
       id: 0,

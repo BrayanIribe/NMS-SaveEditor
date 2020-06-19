@@ -9,7 +9,7 @@
   >
     <div class="text-center">
       <img src="/img/drag-drop.jpg" style="height:3rem; opacity:0.7" class="mb-3" />
-      <p class="w-100 text-lighter">{{ text }}</p>
+      <p class="w-100 text-lighter">{{ file ? file.name : text }}</p>
     </div>
 
     <input ref="filePicker" @change="pickFile()" type="file" accept=".hg" style="display:none" />
@@ -31,7 +31,8 @@ export default {
   },
   data() {
     return {
-      error: false
+      error: false,
+      file: null
     };
   },
   watch: {
@@ -84,7 +85,7 @@ export default {
       }
 
       const reader = new FileReader();
-      reader.readAsText(file, "UTF-8");
+      reader.readAsText(file);
       reader.onload = evt => {
         if (!evt.target.result) {
           this.throwError();
@@ -92,6 +93,7 @@ export default {
         }
         const fileContents = evt.target.result;
         this.$emit("input", fileContents);
+        this.file = file;
         console.log(fileContents)
       };
       reader.onerror = () => {
