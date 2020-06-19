@@ -8,7 +8,7 @@
     :class="[$errorClass]"
   >
     <div class="text-center">
-      <img src="/img/drag-drop.jpg" style="height:3rem; opacity:0.7" class="mb-3" />
+      <img src="img/drag-drop.jpg" style="height:3rem; opacity:0.7" class="mb-3" />
       <p class="w-100 text-lighter">{{ file ? file.name : text }}</p>
     </div>
 
