@@ -92,7 +92,7 @@ export default {
           return;
         }
         const fileContents = evt.target.result;
-        this.$emit("input", fileContents);
+        this.$emit("input", {filename: file.name, data: fileContents});
         this.file = file;
         console.log(fileContents)
       };

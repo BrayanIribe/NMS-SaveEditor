@@ -12,6 +12,7 @@
     "animate.css": "^4.1.0",
     "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.5",
+    "downloadjs": "^1.4.7",
     "tailwindcss": "^1.4.6",
     "vue": "^2.6.11",
     "vue-router": "^3.3.4"
